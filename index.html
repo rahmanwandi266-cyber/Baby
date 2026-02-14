@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Ardiani 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    padding:20px;
+    position:relative;
+}
+
+/* BACKGROUND FOTO + GRADIENT */
+body::before{
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:url('background.jpg') center/cover no-repeat; /* ganti nama foto di sini */
+    background-size:cover;
+    filter:brightness(0.4);
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:linear-gradient(135deg, rgba(139,10,80,0.5), rgba(255,154,158,0.5), rgba(255,193,193,0.4));
+    z-index:-1;
+    pointer-events:none;
+    animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* OPENING */
+.opening{
+    text-align:center;
+    margin-bottom:30px;
+    z-index:1;
+    position:relative;
+}
+
+.opening h1{
+    font-family:'Playfair Display',serif;
+    font-size:26px;
+    margin-bottom:25px;
+    color:#fff8f0;
+}
+
+.opening button{
+    margin:10px;
+    padding:15px 35px;
+    border:none;
+    border-radius:35px;
+    background:linear-gradient(135deg,#b11249,#ff6f91);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.opening button:hover{opacity:0.9;}
+
+/* PESAN */
+.container{
+    display:none;
+    max-width:800px;
+    padding:25px 20px;
+    background:rgba(0,0,0,0.35);
+    border-radius:20px;
+    text-align:center;
+    z-index:1;
+    position:relative;
+}
+
+#message{
+    font-size:16px;
+    line-height:1.8;
+    font-family:'Playfair Display',serif;
+    white-space:pre-wrap;
+    text-align:center;
+    word-wrap:break-word;
+}
+
+/* HATI ELEGAN */
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:16px;
+    animation:floatUp linear forwards;
+    pointer-events:none;
+    opacity:0.6;
+    z-index:0;
+}
+
+@keyframes floatUp{
+    0% {transform:translateY(0) scale(1);}
+    50% {transform:translateY(-30vh) scale(1.1);}
+    100% {transform:translateY(-100vh) scale(0.8); opacity:0;}
+}
+
+/* RESPONSIVE HP */
+@media(max-width:480px){
+    .opening h1{font-size:20px;}
+    .opening button{padding:12px 28px;font-size:14px;}
+    #message{font-size:15px; line-height:1.6;}
+}
+</style>
+</head>
+<body>
+
+<!-- MUSIK -->
+<audio id="bgm" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f98f3c6d5.mp3?filename=romantic-love-11186.mp3" type="audio/mp3">
+</audio>
+
+<!-- OPENING -->
+<div class="opening" id="opening">
+    <h1>Ardiani… 💖<br>Apakah kamu siap membuka surat kecil ini?</h1>
+    <button onclick="openLetter()">Ya, aku siap 💌</button>
+</div>
+
+<!-- PESAN -->
+<div class="container" id="letter">
+    <div id="message">
+Aku tidak tahu sejak kapan cinta kita berubah bentuk. 🌙
+Dulu semuanya ringan. Kita tertawa tanpa takut kehilangan. 🌸
+Sekarang semuanya terasa lebih dewasa. 🌫️
+Lebih sunyi. Lebih berarti. 🤍
+Kita pernah saling melukai. 💔
+Pernah diam terlalu lama. 🌧️
+Pernah hampir menyerah. 🥀
+Tapi di setiap malam yang membuatku lelah, 🌌
+namamu tetap yang ingin aku peluk. 🫂
+Aku mencintaimu bukan karena semuanya selalu baik. 🌹
+Tapi karena bahkan saat hampir runtuh, 🌪️
+aku masih takut kehilangan kamu lebih dari apa pun. 🥺
+Kalau dunia kembali menguji kita, 🌍
+aku tetap ingin memilihmu. 💍
+Yang paling membuatku takut bukan kehilangan dunia… tapi kehilangan kamu. 💖
+Kalau kamu lelah… bilang ya. 🤍
+Bukan untuk berakhir, 🌿
+tapi supaya aku bisa belajar mencintaimu lagi dengan cara yang lebih baik. ✨
+Terimakasih sudah hadir dan mewarnai hari di setiap notif mu. 📩🤍
+Jika aku bukan yang kamu tuju, bisikkan padaku…
+Agar aku belajar merelakan dengan hati yang dewasa. 🤍
+Tapi jika aku memang tujuanmu…
+Pegang tanganku, jangan biarkan aku berjalan sendiri di dunia ini.
+    </div>
+</div>
+
+<script>
+const bgm = document.getElementById("bgm");
+const opening = document.getElementById("opening");
+const letter = document.getElementById("letter");
+
+function openLetter(){
+    opening.style.display="none";
+    letter.style.display="block";
+    bgm.play();
+    startHearts();
+}
+
+// HATI ELEGAN
+function createHeart(){
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = Math.random() > 0.5 ? '❤️' : '💛'; // merah & emas
+    heart.style.left = Math.random()*90 + 'vw';
+    heart.style.fontSize = (Math.random()*20 + 14) + 'px';
+    heart.style.animationDuration = (Math.random()*4 + 5) + 's';
+    heart.style.opacity = Math.random()*0.4 + 0.4;
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),9000);
+}
+
+function startHearts(){
+    setInterval(createHeart, 500);
+}
+</script>
+
+</body>
+</html>
